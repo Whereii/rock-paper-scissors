@@ -13,6 +13,9 @@ let rockPress = document.getElementById('rockbtn');
 let paperPress = document.getElementById('paperbtn');
 let scissorsPress = document.getElementById('scissorsbtn');
 let resultsDisplay = document.getElementById('display');
+let playerScore = document.getElementById('playerScore');
+let computerScore = document.getElementById('computerScore');
+let results = document.getElementById('results');
 let playerSelection;
 
 
@@ -31,7 +34,7 @@ function faceOff (player, robot) {
     } else if (player === 'paper' && robot === 'scissors') {
         return 'You lose. Yikes. Better luck next time. The robot guessed scissors';
     } else if (player === 'scissors' && robot === 'paper') {
-        return 'You Win! Looks like you dominated. You guessed scissors which beats the robots thin paper';
+        return 'You win! Looks like you dominated. You guessed scissors which beats the robots thin paper';
     } else if (player === 'scissors' && robot === 'scissors') {
         return 'You tie. You both guessed scissors';
     } else if (player === 'scissors' && robot === 'rock') {
@@ -41,17 +44,62 @@ function faceOff (player, robot) {
 
 rockPress.addEventListener('click', function () {
     playerSelection = 'rock';
+    results.textContent = '';
     resultsDisplay.textContent = faceOff(playerSelection, computerPlay());
+    if(resultsDisplay.textContent.includes('win') === true) {
+        playerScore.textContent ++;
+    } else if (resultsDisplay.textContent.includes('lose') === true) {
+        computerScore.textContent ++;
+    };
+    if(playerScore.textContent >= 5 || computerScore.textContent >= 5) {
+        if(playerScore.textContent > computerScore.textContent){
+            results.textContent = 'You win ' + playerScore.textContent + ' to ' + computerScore.textContent +  '! You beat that simple program!'
+        } else {
+            results.textContent = 'You lost ' + playerScore.textContent + ' to ' + computerScore.textContent +  '. You are a loser and will always be one.'
+        };
+        playerScore.textContent = 0;
+        computerScore.textContent = 0;
+    }
 });
 
 paperPress.addEventListener('click', function () {
     playerSelection = 'paper';
+    results.textContent = '';
     resultsDisplay.textContent = faceOff(playerSelection, computerPlay());
+    if(resultsDisplay.textContent.includes('win') === true) {
+        playerScore.textContent ++;
+    } else if (resultsDisplay.textContent.includes('lose') === true) {
+        computerScore.textContent ++;
+    };
+    if(playerScore.textContent >= 5 || computerScore.textContent >= 5) {
+        if(playerScore.textContent > computerScore.textContent){
+            results.textContent = 'You win ' + playerScore.textContent + ' to ' + computerScore.textContent + '! You beat that simple program!'
+        } else {
+            results.textContent = 'You lost ' + playerScore.textContent + ' to ' + computerScore.textContent +  '. You are a loser and will always be one.'
+        };
+        playerScore.textContent = 0;
+        computerScore.textContent = 0;
+    }
 });
 
 scissorsPress.addEventListener('click', function () {
     playerSelection = 'scissors';
+    results.textContent = '';
     resultsDisplay.textContent = faceOff(playerSelection, computerPlay());
+    if(resultsDisplay.textContent.includes('win') === true) {
+        playerScore.textContent ++;
+    } else if (resultsDisplay.textContent.includes('lose') === true) {
+        computerScore.textContent ++;
+    };
+    if(playerScore.textContent >= 5 || computerScore.textContent >= 5) {
+        if(playerScore.textContent > computerScore.textContent){
+            results.textContent = 'You win ' + playerScore.textContent + ' to ' + computerScore.textContent +  '! You beat that simple program!'
+        } else {
+            results.textContent = 'You lose ' + playerScore.textContent + ' to ' + computerScore.textContent +  '. You are a loser and will always be one.'
+        };
+        playerScore.textContent = 0;
+        computerScore.textContent = 0;
+    }
 });
 
 

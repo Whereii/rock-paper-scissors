@@ -48,5 +48,25 @@ h1 {
 
 #display {
     font-size: 30px;
-    margin-top: 20px;
+}
+
+.score {
+    display: flex;
+}
+
+.computerBox, .playerBox {
+    display: flex;
+    font-size: 30px;
+    margin: 0px 20px 20px 20px;
+    color: #ececec;
+}
+
+.computer, .player {
+    margin: 0px 10px 0px 10px;
+}
+
+#results {
+    font-size: 40px;
+    color: #ececec;
+    margin-top: 10px;
 }
