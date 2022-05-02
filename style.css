@@ -1,12 +1,52 @@
 body {
-    display: flex;
-    justify-content: center;
+    background-color: #385170;
 }
 
-.only {
-    margin-top: 40%;
+h1 {
+    font-size: 80px;
+}
+
+.page {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.only {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons {
+    display: flex;
+}
+
+#rockbtn, #scissorsbtn, #paperbtn {
+    font-size: 100px;
+    margin: 15px;
+}
+
+#rockbtn {
+    border: 5px solid #e46161;
+    background-color: #e46161;
+
+}
+
+#scissorsbtn {
+    border: 5px solid #f1b963;
+    background-color: #f1b963;
+
+}
+
+#paperbtn {
+    border: 5px solid #f8f398;
+    background-color: #f8f398;
+}
+
+#display {
+    font-size: 30px;
+    margin-top: 20px;
 }

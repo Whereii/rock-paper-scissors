@@ -9,6 +9,13 @@ function computerPlay () {
     }
 }
 
+let rockPress = document.getElementById('rockbtn');
+let paperPress = document.getElementById('paperbtn');
+let scissorsPress = document.getElementById('scissorsbtn');
+let resultsDisplay = document.getElementById('display');
+let playerSelection;
+
+
 //Mathes the player input to the random answer from the robot. Took the long way to solve this little problem. Im sure there are much quicker ways to create the solution to this one.
 function faceOff (player, robot) {
     if (player === 'rock' && robot === 'scissors') {
@@ -32,12 +39,27 @@ function faceOff (player, robot) {
     }
 }
 
+rockPress.addEventListener('click', function () {
+    playerSelection = 'rock';
+    resultsDisplay.textContent = faceOff(playerSelection, computerPlay());
+});
+
+paperPress.addEventListener('click', function () {
+    playerSelection = 'paper';
+    resultsDisplay.textContent = faceOff(playerSelection, computerPlay());
+});
+
+scissorsPress.addEventListener('click', function () {
+    playerSelection = 'scissors';
+    resultsDisplay.textContent = faceOff(playerSelection, computerPlay());
+});
+
+
 //This little piece of code is very confusing and I should have broken it down into at least another "score" function. Found myself a little too deep and ended up just putting it all together
-function game () {
+/*function game () {
     let computerScore = 0;
     let playerScore = 0;
     for(let i = 0; i < 5; i++) {
-        let playerSelection = prompt('Pick rock, paper, or scissors').toLowerCase();
         //Decided to turn the faceOff function into a variable so it is a little easier for me to wrap my head around and to use .includes a little easier.
         let round = faceOff(playerSelection, computerPlay());
         console.log(round);
@@ -59,3 +81,4 @@ function game () {
 
 
 console.log(game());
+*/
